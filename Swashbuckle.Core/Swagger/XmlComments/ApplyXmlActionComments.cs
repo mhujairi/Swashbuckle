@@ -75,10 +75,7 @@ namespace Swashbuckle.Swagger.XmlComments
 
                 var responseTypeName = responseNodes.Current.GetAttribute("cref", string.Empty);
                 var schema = responseTypeName == string.Empty
-                    ? (statusCode.StartsWith("2") 
-                        ? successResponse.schema 
-                        : null
-                    )
+                    ? null
                     : GetCrefSchema(schemaRegistry, responseTypeName.Substring(2));
                 var response = new Response
                 {
